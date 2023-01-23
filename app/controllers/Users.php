@@ -58,8 +58,58 @@
         $this->view('pages/login');
       }
     }
-    
-    
+
+    public function register(){
+      // Check if logged in
+      if($this->isLoggedIn()){
+        redirect('login');
+      }
+
+      // Check if POST
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        // Sanitize POST
+        $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+        $data = [
+          'name' => trim($_POST['nameregi']),
+          'email' => trim($_POST['emailregi']),
+          'password' => trim($_POST['passregi']),
+         
+        ];
+        
+
+        // Hash Password
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        
+        //Execute
+        if($this->userModel->register($data)){
+            // Redirect to login
+            flash('register_success', 'You are now registered and can log in');
+            redirect('pages/login');
+          } else {
+            die('Something went wrong');
+          }
+        } 
+        else {
+          // Load View
+          $this->view('pages/register');   
+        }{
+          // IF NOT A POST REQUEST
+
+        // Init data
+        $data = [
+          'name' => '',
+          'email' => '',
+          'password' => '',
+          'name_err' => '',
+          'email_err' => '',
+          'password_err' => '',
+        ];
+        
+        // Load View
+        $this->view('pages/register', $data);
+      }
+    }
     
     // Create Session With User Info
       public function createUserSession($user){

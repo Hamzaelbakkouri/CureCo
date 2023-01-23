@@ -35,8 +35,34 @@ class Pages extends Controller
   }
   public function dashboard()
   {
+
     $data = $this->medicine->getmedicine();
     $this->view('pages/admin/dashboard', $data);
+
+  }
+
+  public function newdash(){
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['submit_sort'])) {
+        $by = $_POST['by'];
+        $way = $_POST['way'];
+        if ($by == 'date' && $way = 'DESC') {
+          $data = $this->medicine->getdesc($by);
+          $this->view('pages/admin/dashboard', $data);
+        } else if ($by == 'price' && $way = 'DESC') {
+          $data = $this->medicine->getdesc($by);
+          $this->view('pages/admin/dashboard', $data);
+        }
+
+        if ($by == 'date' && $way = 'ASC') {
+          $data = $this->medicine->getasc($by);
+          $this->view('pages/admin/dashboard', $data);
+        } else if ($by == 'price' && $way = 'ASC') {
+          $data = $this->medicine->getasc($by);
+          $this->view('pages/admin/dashboard', $data);
+        }
+      }
+    }
   }
   public function add()
   {
@@ -51,6 +77,6 @@ class Pages extends Controller
     $url = explode('/', $url);
     $id = $url[2];
     $data = $this->medicine->getedit($id);
-    $this->view('pages/admin/edit', $data); 
+    $this->view('pages/admin/edit', $data);
   }
 }

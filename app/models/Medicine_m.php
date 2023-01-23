@@ -10,7 +10,7 @@ class Medicine_m extends Database
 
     function getmedicine()
     {
-        $this->db->query("SELECT `id_m`, `name_m`, `price` , `quantity`,`image_m` FROM `medicine`");
+        $this->db->query("SELECT `id_m`, `name_m`, `price` , `quantity`,`image_m`,`date` FROM `medicine`");
         $data = $this->db->resultset();
         return $data;
     }
@@ -18,6 +18,18 @@ class Medicine_m extends Database
     {
         $this->db->query("SELECT `id_m`, `name_m`, `price` , `quantity`,`image_m` FROM `medicine` WHERE `id_m`= :id ");
         $this->db->bind(":id", $id);
+        $data = $this->db->resultset();
+        return $data;
+    }
+
+    public function getdesc($by){
+        $this->db->query("SELECT `id_m`, `name_m`, `price` , `quantity`,`image_m`,`date` FROM `medicine` ORDER BY $by DESC");
+        $data = $this->db->resultset();
+        return $data;
+    }
+
+    public function getasc($by){
+        $this->db->query("SELECT `id_m`, `name_m`, `price` , `quantity`,`image_m` FROM `medicine` ORDER BY $by ASC");
         $data = $this->db->resultset();
         return $data;
     }

@@ -22,7 +22,7 @@ class Medicine extends Controller
                 $Prix = $_POST['price'][$i];
                 $Quantity = $_POST['quantity'][$i];
                 $Image = $filename;
-                
+
                 move_uploaded_file($tempname, $folder);
                 $this->medicine->addmedicine($name, $Prix, $Quantity, $Image);
             }
@@ -66,4 +66,9 @@ class Medicine extends Controller
             }
         }
     }
+
+    // public function selectBy()
+    // {
+        
+    // }
 }

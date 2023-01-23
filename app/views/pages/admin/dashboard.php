@@ -2,6 +2,30 @@
 <?php
 require APPROOT . '/views/inc/navbar.php';
 ?>
+<form action="<?= URLROOT; ?>/Pages/newdash" method="post">
+    <div class="w-full flex justify-center gap-10 pt-10">
+        <select name="by" class="block w-40 p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="">
+            <option value="price">
+                price
+            </option>
+            <option value="date">
+                date
+            </option>
+        </select>
+        <select name="way" class="block w-40 p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="">
+            <option value="DESC">
+                DESC
+            </option>
+            <option value="ASC">
+                ASC
+            </option>
+        </select>
+        <div class="form-group col-sm-6">
+            <button type="submit" id="" name="submit_sort" class="block w-40 p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"><p>SORT</p></button>
+        </div>
+    </div>
+</form>
+
 <div class="w-10 pt-5 pb-5">
     <a class="pl-2.5" href="<?php echo URLROOT; ?>/pages/add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
             <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z" />
@@ -12,16 +36,19 @@ require APPROOT . '/views/inc/navbar.php';
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    <p>Product name</p> 
+                    <p>Product name</p>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                     <p>Price</p>
+                    <p>Price</p>
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <p>Quantity</p>
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <p>Image</p>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <p>date</p>
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <p>action</p>
@@ -43,6 +70,9 @@ require APPROOT . '/views/inc/navbar.php';
                     </td>
                     <td class="px-6 py-4 border-solid">
                         <img src="<?php echo URLROOT; ?>/images/<?php echo $dt['image_m']; ?>" class="img-responsive w-40 h-42" alt="">
+                    </td>
+                    <td class="px-6 py-4 border-solid">
+                        <p><?= $dt['date']; ?></p>
                     </td>
                     <td class="flex flex-row px-6 py-4 gap-5">
                         <p>
