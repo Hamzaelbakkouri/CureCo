@@ -62,6 +62,22 @@ class Medicine_m extends Database
             return FALSE;
     }
 
+    public function price_product()
+    {
+        $this->db->query('SELECT SUM(price) FROM medicine');
+        $this->db->execute();
+        $count = $this->db->fetchColumn();
+        return $count;
+    }
+    public function products_number()
+    {
+        $this->db->query("SELECT COUNT(*) FROM medicine");
+
+        $this->db->execute();
+
+        return $this->db->fetchColumn();
+    }
+
 
 
     function deletemedicine($id)

@@ -26,9 +26,7 @@ function login(e) {
         form.submit();
     }
 
-    
 }
-
 
 function setErrorFor(input, message){
     const formControle = input.parentElement;
@@ -36,7 +34,6 @@ function setErrorFor(input, message){
     small.innerText = message;
     formControle.className = 'form-controle error';
 }
-
 
 function validateEmail(email){
 

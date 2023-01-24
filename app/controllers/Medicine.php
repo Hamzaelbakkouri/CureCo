@@ -67,6 +67,8 @@ class Medicine extends Controller
         }
     }
 
+    
+
     // public function selectBy()
     // {
         

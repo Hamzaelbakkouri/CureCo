@@ -91,6 +91,7 @@
 <!-- SCRIPTS -->
 <script src="<?php echo URLROOT; ?>/js/custom.js"></script>
 <script src="<?php echo URLROOT; ?>/js/validate.js"></script>
+<script src="<?php echo URLROOT; ?>/js/search.js"></script>
 
 </body>
 
