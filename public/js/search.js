@@ -3,7 +3,7 @@ var products = document.querySelectorAll('.prod');
 var productsName = document.querySelectorAll('.productsName');
 var btn = document.getElementById('done');
 
-btn.addEventListener('click', e => {
+search.addEventListener('keyup', e => {
     for (var i in products) {
         if (search.value == productsName[i].innerHTML) {
             products[i].classList.remove('hidden');

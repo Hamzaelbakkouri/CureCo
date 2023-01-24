@@ -38,3 +38,15 @@
 
      </div>
 </section>
+
+<script>
+    var bar = document.querySelector('.bar');
+    var x=document.querySelector('.navx');
+    var nav = document.querySelector('.navUl');
+    bar.addEventListener('click',e=>{
+        nav.classList.remove('max-md:hidden');
+    })
+    x.addEventListener('click',e=>{
+        nav.classList.add('max-md:hidden');
+    });
+</script>

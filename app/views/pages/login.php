@@ -16,7 +16,8 @@
 
 
                         <i class="fa fa-envelope"></i>
-                        <input type="text" id="email" class="form-control" placeholder="Email address" name="emailuse" required>
+                        <input type="email" id="email" class="form-control" placeholder="Email address" name="emailuse">
+                        <small class="form-input error text-danger text-2xl pt-2"></small>
 
                     </div>
 
@@ -24,12 +25,13 @@
                     <div class="form-input">
 
                         <i class="fa fa-lock"></i>
-                        <input type="password" id="password" class="form-control" placeholder="password" name="passuse" required>
+                        <input type="password" id="password" class="form-control" placeholder="password" name="passuse">
+                        <small class="form-input error text-danger text-2xl pt-2"></small>
                     </div>
                     <div id="small" class="text-2xl pl-2 text-red-500 "></div>
 
 
-                    <button class="btn btn-primary mt-4 signup" name="submit" onclick="login();">login</button>
+                    <button class="btn btn-primary mt-4 signup" type="submit" >login</button>
 
                 </div>
 
@@ -41,5 +43,4 @@
 
     </div>
 </form>
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/validate.js"></script>
